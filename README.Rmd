@@ -1,0 +1,39 @@
+ropkgs
+=======
+
+`ropkgs` is an R client to discover and install rOpensci packages.
+
+## Installation
+
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("sckott/ropkgs")
+```
+
+```{r}
+library("ropkgs")
+```
+
+## List all packages
+
+```{r eval=FALSE}
+adfadf
+```
+
+## Search for a package
+
+```{r eval=FALSE}
+adfadf
+```
+
+## Install packages
+
+```{r eval=FALSE}
+afafasf
+```
+
+## Uninstall packages
+
+```{r eval=FALSE}
+uninstall
+```
