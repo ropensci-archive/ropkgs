@@ -3,7 +3,7 @@
 #' @import devtools
 #' @export
 #'
-#' @param pkg One or more packages to install
+#' @param pkgs One or more packages to install
 #' @param type character; Only source for now, but hopefully soon support binaries.
 #' @param ... Named options passed on to \code{\link[devtools]{install}}
 #' @details Only installs source (non-binary) packages from GitHub for now.

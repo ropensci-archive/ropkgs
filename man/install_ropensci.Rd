@@ -6,11 +6,11 @@
 install_ropensci(pkgs, type = "source", ...)
 }
 \arguments{
+\item{pkgs}{One or more packages to install}
+
 \item{type}{character; Only source for now, but hopefully soon support binaries.}
 
 \item{...}{Named options passed on to \code{\link[devtools]{install}}}
-
-\item{pkg}{One or more packages to install}
 }
 \description{
 Install ropensci packages
