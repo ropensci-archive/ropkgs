@@ -13,7 +13,7 @@ Check if an ropensci package is on CRAN.
 }
 \examples{
 \donttest{
-on_cran('taxize')
+on_cran(pkgs='taxize')
 on_cran('musemeta')
 on_cran(pkgs=c('taxize','musemeta'))
 }

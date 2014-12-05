@@ -17,6 +17,8 @@
 #' install_ropensci(pkgs = 'stuffthings')
 #' }
 install_ropensci <- function(pkgs, type = "source", ...){
+  notro <- pkgs[!is_ropensci(pkgs)]
+  if(length(notro) > 0) warning(sprintf("Not ropensci packages: %s", paste0(notro, collapse = ", ")), call. = FALSE)
   pkgs <- paste0("ropensci/", pkgs)
   devtools::install_github(pkgs, ...)
 }

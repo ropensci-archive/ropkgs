@@ -4,7 +4,7 @@
 #'
 #' @param pkgs One or more package names
 #' @examples \donttest{
-#' on_cran('taxize')
+#' on_cran(pkgs='taxize')
 #' on_cran('musemeta')
 #' on_cran(pkgs=c('taxize','musemeta'))
 #' }
@@ -15,14 +15,14 @@ on_cran <- function(pkgs){
     dir.create("~/.rodata/")
     saveRDS(out, "~/.rodata/availpkgs.rds")
   }
-  on_cran_(pkgs)
+  on_cran_(pkgs, out)
 }
 
-on_cran_ <- function(x){
+on_cran_ <- function(y, dat){
   as.list(
-    vapply(x, function(x){
+    vapply(y, function(x){
       if(is_ropensci(x)){
-        if(x %in% out$Package) TRUE else FALSE
+        if(x %in% dat$Package) TRUE else FALSE
       } else {
         FALSE
       }
