@@ -7,4 +7,6 @@ Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
 License: MIT + file LICENSE
 LazyData: true
 Imports:
-    devtools
+    devtools,
+    downloader,
+    jsonlite

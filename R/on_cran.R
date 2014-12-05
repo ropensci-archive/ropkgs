@@ -15,5 +15,17 @@ on_cran <- function(pkgs){
     dir.create("~/.rodata/")
     saveRDS(out, "~/.rodata/availpkgs.rds")
   }
-  as.list(vapply(pkgs, function(x) if(x %in% out$Package) TRUE else FALSE, logical(1)))
+  on_cran_(pkgs)
+}
+
+on_cran_ <- function(x){
+  as.list(
+    vapply(x, function(x){
+      if(is_ropensci(x)){
+        if(x %in% out$Package) TRUE else FALSE
+      } else {
+        FALSE
+      }
+    }, logical(1))
+  )
 }
