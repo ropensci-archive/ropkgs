@@ -5,7 +5,6 @@ Version: 0.0.1.99
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 License: MIT + file LICENSE
-LazyData: true
 Imports:
     devtools,
     downloader,
