@@ -3,10 +3,20 @@
 \alias{ro_pkgs}
 \title{List ropensci packages}
 \usage{
-ro_pkgs(query = NULL, category = NULL, on_cran = NULL, simplify = FALSE,
-  ...)
+ro_pkgs(query = NULL, category = NULL, on_cran = NULL,
+  maintainer = NULL, simplify = FALSE, ...)
 }
 \arguments{
+\item{query}{Query terms, uses \code{grep}}
+
+\item{category}{Category to get, matches exactly}
+
+\item{on_cran}{(logical) Whether to select only those on CRAN, default: all}
+
+\item{maintainer}{(character) A maintainer name}
+
+\item{simplify}{(logical) Simplify output to more important fields}
+
 \item{...}{Named options passed on to \code{\link[devtools]{install}}}
 }
 \description{
@@ -21,6 +31,7 @@ ro_pkgs()
 ro_pkgs(category = "history")
 ro_pkgs(category = "archeology")
 ro_pkgs(category = "economics")
+ro_pkgs(maintainer = "Scott Chamberlain")
 ro_pkgs(on_cran = TRUE)
 ro_pkgs(query = "species")
 ro_pkgs(query = "alfjafaksd")
