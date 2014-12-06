@@ -3,7 +3,8 @@
 \alias{ro_pkgs}
 \title{List ropensci packages}
 \usage{
-ro_pkgs(...)
+ro_pkgs(query = NULL, category = NULL, on_cran = NULL, simplify = FALSE,
+  ...)
 }
 \arguments{
 \item{...}{Named options passed on to \code{\link[devtools]{install}}}
@@ -13,7 +14,16 @@ List ropensci packages
 }
 \examples{
 \donttest{
+# list all packages
 ro_pkgs()
+
+# query for a pacakage
+ro_pkgs(category = "history")
+ro_pkgs(category = "archeology")
+ro_pkgs(category = "economics")
+ro_pkgs(on_cran = TRUE)
+ro_pkgs(query = "species")
+ro_pkgs(query = "alfjafaksd")
 }
 }
 
