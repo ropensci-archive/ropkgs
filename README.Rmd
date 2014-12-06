@@ -1,6 +1,15 @@
 ropkgs
 =======
 
+```{r echo=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE,
+  message = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
 `ropkgs` is an R client to discover and install rOpensci packages.
 
 ## Installation
@@ -16,24 +25,42 @@ library("ropkgs")
 
 ## List all packages
 
-```{r eval=FALSE}
-adfadf
+```{r collapse=FALSE}
+out <- ro_pkgs()
+out$name
+out$version
+out$updated
+head( out$packages )
 ```
 
-## Search for a package
+## Filter packages
 
-```{r eval=FALSE}
-adfadf
+Filter by category
+
+```{r}
+ro_pkgs(category = "history", simplify=TRUE)
+```
+
+Filter by maintainer
+
+```{r}
+ro_pkgs(maintainer = "Lincoln Mullen", simplify=TRUE)
+```
+
+## Search for packages
+
+```{r}
+ro_pkgs(query = "species", simplify = TRUE)
+```
+
+## Check if a package is on CRAN
+
+```{r}
+on_cran('taxize')
 ```
 
 ## Install packages
 
-```{r eval=FALSE}
-afafasf
-```
-
-## Uninstall packages
-
-```{r eval=FALSE}
-uninstall
+```{r}
+install_ropensci(pkgs = 'musemeta')
 ```
