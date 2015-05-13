@@ -8,11 +8,14 @@
 #' on_cran('musemeta')
 #' on_cran(pkgs=c('taxize','musemeta'))
 #' }
-on_cran <- function(pkgs){
-  out <- suppressWarnings(tryCatch(readRDS("~/.rodata/availpkgs.rds"), error = function(e) e))
-  if(is(out, "simpleError")) {
+on_cran <- function(pkgs, force_update = TRUE) {
+  out <- NULL
+  if (!force_update) {
+    out <- suppressWarnings(tryCatch(readRDS("~/.rodata/availpkgs.rds"), error = function(e) e))
+  }
+  if (is(out, "simpleError") || is.null(out)) {
     out <- data.frame(available.packages(), stringsAsFactors = FALSE)
-    dir.create("~/.rodata/")
+    dir.create("~/.rodata/", recursive = TRUE, showWarnings = FALSE)
     saveRDS(out, "~/.rodata/availpkgs.rds")
   }
   on_cran_(pkgs, out)
@@ -20,9 +23,9 @@ on_cran <- function(pkgs){
 
 on_cran_ <- function(y, dat){
   as.list(
-    vapply(y, function(x){
-      if(is_ropensci(x)){
-        if(x %in% dat$Package) TRUE else FALSE
+    vapply(y, function(x) {
+      if (is_ropensci(x)) {
+        if (x %in% dat$Package) TRUE else FALSE
       } else {
         FALSE
       }
