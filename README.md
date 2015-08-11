@@ -10,7 +10,7 @@ ropkgs
 
 ```r
 install.packages("devtools")
-devtools::install_github("sckott/ropkgs")
+devtools::install_github("ropensci/ropkgs")
 ```
 
 
