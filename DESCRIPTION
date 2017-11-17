@@ -1,7 +1,7 @@
 Package: ropkgs
-Title: Install rOpenSci Packages
-Description: Install rOpenSci Packages
-Version: 0.0.1.99
+Title: Install and Get Metadata on rOpenSci Packages
+Description: Install and Get Metadata on rOpenSci Packages.
+Version: 0.0.3
 Authors@R: person("Scott", "Chamberlain", role = c("aut", "cre"),
     email = "myrmecocystus@gmail.com")
 License: MIT + file LICENSE
@@ -9,3 +9,4 @@ Imports:
     devtools,
     downloader,
     jsonlite
+RoxygenNote: 6.0.1

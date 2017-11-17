@@ -3,6 +3,7 @@
 #' @export
 #'
 #' @param pkgs One or more package names
+#' @param force_update (logical) force update? Default: `TRUE`
 #' @examples \donttest{
 #' on_cran(pkgs='taxize')
 #' on_cran('musemeta')
@@ -13,8 +14,8 @@ on_cran <- function(pkgs, force_update = TRUE) {
   if (!force_update) {
     out <- suppressWarnings(tryCatch(readRDS("~/.rodata/availpkgs.rds"), error = function(e) e))
   }
-  if (is(out, "simpleError") || is.null(out)) {
-    out <- data.frame(available.packages(), stringsAsFactors = FALSE)
+  if (inherits(out, "simpleError") || is.null(out)) {
+    out <- data.frame(utils::available.packages(), stringsAsFactors = FALSE)
     dir.create("~/.rodata/", recursive = TRUE, showWarnings = FALSE)
     saveRDS(out, "~/.rodata/availpkgs.rds")
   }

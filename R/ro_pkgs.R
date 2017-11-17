@@ -41,4 +41,4 @@ ro_pkgs <- function(query = NULL, category = NULL, on_cran = NULL,
   if(simplify) out[, c("name","type","status","category","on_cran","cran_archived")] else out
 }
 
-ro_registry <- function() 'https://raw.githubusercontent.com/ropensci/roregistry/master/registry.json'
+ro_registry <- function() 'https://raw.githubusercontent.com/ropensci/roregistry/gh-pages/registry.json'
